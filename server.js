@@ -151,7 +151,7 @@ async function renderJob(job) {
     if (probes[i].hasAudio) {
       filters.push(
         `[${i}:a]atrim=duration=${fmtTime(dur)},asetpts=N/SR/TB,` +
-        `fade=t=in:st=0:d=0.25,fade=t=out:st=${fmtTime(fadeOut)}:d=0.25[a${i}]`
+        `afade=t=in:st=0:d=0.25,afade=t=out:st=${fmtTime(fadeOut)}:d=0.25[a${i}]`
       );
     } else {
       const idx = anullsrcBase + noAudioClips.indexOf(i);
