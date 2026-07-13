@@ -142,7 +142,8 @@ async function renderJob(job) {
 
     filters.push(
       `[${i}:v]trim=duration=${fmtTime(dur)},` +
-      `scale=${res.w}:${res.h}:force_original_aspect_ratio=increase,` +
+      `format=pix_fmts=yuv420p,` +
+      `scale=${res.w}:${res.h}:force_original_aspect_ratio=increase:force_divisible_by=2,` +
       `crop=${res.w}:${res.h},setsar=1,` +
       `fade=t=in:st=0:d=0.25,fade=t=out:st=${fmtTime(fadeOut)}:d=0.25,` +
       `fps=${fps}[v${i}]`
